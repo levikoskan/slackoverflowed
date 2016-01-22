@@ -22,16 +22,17 @@
 
       <% if question.updated_at >= Time.current - (30.minutes)  %>
 
-        <h6>This was asked <%=time_ago_in_words(question.updated_at)%> ago!</h6>
 
         <div class ='allQuestions' id ='recentQuestions'>
           <%= link_to question.body, question_path(question.id)%>
+        <h6>This was asked <%=time_ago_in_words(question.updated_at)%> ago!</h6>
+
 
         </div>
       <% else %>
 
-        <h6>This was asked on <%=question.updated_at.strftime("%d %b. %Y")%></h6>
         <div class ='allQuestions'><%= link_to question.body, question_path(question.id)%></div>
+        <h6>This was asked on <%=question.updated_at.strftime("%d %b. %Y")%></h6>
       <% end %>
 
     <% end %>
